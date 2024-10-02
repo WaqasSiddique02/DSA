@@ -1,30 +1,23 @@
 #include <iostream>
 using namespace std;
+
 int main() {
-	const int size = 6;
-	int arr[size] = {5,3,1,2,4,6};
-	int temp=0,i=0;
-	bool swap = false;
+    const int size = 10;
+    int arr[size] = { 0, 2, 7, 1, 3, 9, 8, 0, 4, 22 };
 
-	for (int j = size - 1; j >= 0;j--) {
-		for (i = 0; i < size - 1; i++) {
-			if (arr[i + 1] < arr[i]) {
-				temp = arr[i];
-				arr[i] = arr[i + 1];
-				arr[i + 1] = temp;
-				swap = true;
-			}
-		}
+    for (int i = 0; i < size; i++) {
+        for (int j = 0; j < size -1- i; j++) {
+            if (arr[j] > arr[j + 1]) { 
+                int temp = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = temp;
+            }
+        }
+    }
 
-		if (!swap) {
-			break;
-		}
-	}
+    for (int i = 0; i < size; i++) {
+        cout << arr[i] << " ";
+    }
 
-	cout << "Sorted array : ";
-	for (int i = 0; i < size;i++) {
-		cout<< arr[i];
-	}
-
-	return 0;
+    return 0;
 }
